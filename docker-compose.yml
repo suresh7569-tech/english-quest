@@ -1,0 +1,19 @@
+# Free, local services: database + grammar checker.
+# Start with:  docker compose up -d
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports: ["27017:27017"]
+    volumes: [mongo_data:/data/db]
+
+  languagetool:
+    image: erikvl87/languagetool
+    restart: unless-stopped
+    ports: ["8010:8010"]
+    environment:
+      - Java_Xms=256m
+      - Java_Xmx=1g
+
+volumes:
+  mongo_data:
