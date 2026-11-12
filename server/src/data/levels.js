@@ -1,0 +1,85 @@
+// Starter content: 3 levels. Add more by appending to this array and running `npm run seed`.
+// mcq(prompt, options, answerIndex, explanation, tipHi)
+// tr(hindiSentence, acceptedEnglishAnswers, explanation, tipHi)
+const mcq = (prompt, options, answerIndex, explanation, tipHi) => ({
+  type: 'mcq', prompt, options, answerIndex, explanation, tipHi,
+});
+const tr = (prompt, accepted, explanation, tipHi) => ({
+  type: 'translate', prompt, accepted, explanation, tipHi,
+});
+
+export const levels = [
+  {
+    number: 1,
+    title: 'First Words',
+    emoji: '👋',
+    description: 'Greetings, “am / is / are”, and introducing yourself.',
+    questions: [
+      mcq('Choose the correct sentence.', ['I am a student.', 'I is a student.', 'I are a student.', 'I be a student.'], 0,
+        'Use “am” with “I”.', '“I” के साथ हमेशा “am” आता है: I am, you are, he/she/it is.'),
+      mcq('She ___ my friend.', ['am', 'is', 'are', 'be'], 1,
+        'Use “is” with he, she and it.', 'he / she / it के साथ “is” लगता है: She is my friend.'),
+      mcq('What do you say when you meet someone for the first time?', ['Nice to meet you.', 'See you tomorrow.', 'How old are you?', 'Good night.'], 0,
+        '“Nice to meet you” is the standard polite greeting for a first meeting.', null),
+      mcq('They ___ from India.', ['is', 'am', 'are', 'was'], 2,
+        'Use “are” with they, we and you.', 'they / we / you के साथ “are” आता है।'),
+      mcq('One book, two ___.', ['book', 'books', 'bookes', 'bookies'], 1,
+        'Most nouns add -s for the plural.', 'एक से ज़्यादा चीज़ों के लिए ज़्यादातर शब्दों के अंत में -s लगता है: books.'),
+      tr('मेरा नाम राहुल है।', ['My name is Rahul.', 'I am Rahul.'],
+        'Hindi “है” becomes is / am / are in English.', '“है” का अंग्रेज़ी रूप is / am / are होता है: My name is Rahul.'),
+      tr('वह मेरी दोस्त है।', ['She is my friend.'],
+        '“मेरी दोस्त” means a female friend, so the subject is “she”.', '“मेरी दोस्त” लड़की के लिए है, इसलिए “She is my friend.”'),
+      tr('हम भारत से हैं।', ['We are from India.'],
+        'Here “से” means “from”.', 'यहाँ “से” का मतलब “from” है: We are from India.'),
+    ],
+  },
+  {
+    number: 2,
+    title: 'Daily Life',
+    emoji: '☕',
+    description: 'Everyday habits, articles, and mistakes many Indian learners make.',
+    questions: [
+      mcq('He ___ to college every day.', ['go', 'goes', 'going', 'gone'], 1,
+        'With he, she and it, the present simple verb takes -s or -es.', 'he / she / it के साथ क्रिया में -s / -es लगता है: he goes.'),
+      mcq('I have ___ umbrella.', ['a', 'an', 'the', 'no word'], 1,
+        'Use “an” before a vowel sound: an umbrella.', 'स्वर (a, e, i, o, u) की आवाज़ से पहले “an” लगता है: an umbrella.'),
+      mcq('Which sentence is correct?', ['Let us discuss about the plan.', 'Let us discuss the plan.', 'Let us discussing the plan.', 'Let us discuss on the plan.'], 1,
+        '“Discuss” already means “talk about”, so no “about” is needed.', '“discuss” के बाद “about” नहीं लगता। हिंदी “के बारे में चर्चा” की वजह से यह गलती होती है।'),
+      mcq('She ___ tea in the morning.', ['don’t drink', 'doesn’t drink', 'not drink', 'doesn’t drinks'], 1,
+        'After “doesn’t”, the main verb stays in its base form.', '“doesn’t” के बाद क्रिया का सादा रूप आता है: doesn’t drink (drinks नहीं).'),
+      mcq('Which one is correct?', ['I am having a pen.', 'I have a pen.', 'I having a pen.', 'I am have a pen.'], 1,
+        '“Have” for possession is normally not used in the continuous form.', '“मेरे पास है” के लिए “have” का सादा रूप आता है, “am having” नहीं।'),
+      tr('वह रोज़ सुबह जल्दी उठता है।',
+        ['He wakes up early every morning.', 'He gets up early every morning.', 'Every morning he wakes up early.', 'Every morning he gets up early.'],
+        'Present simple for habits: he wakes up.', 'रोज़ की आदत के लिए present simple: He wakes up (क्रिया में -s).'),
+      tr('मुझे चाय पसंद नहीं है।', ['I do not like tea.'],
+        'Hindi says “to me tea is not liked”. English says “I do not like tea”.', '“पसंद नहीं है” = do not like. “don’t” भी सही माना जाएगा।'),
+      tr('क्या आप अंग्रेज़ी बोलते हैं?', ['Do you speak English?', 'Can you speak English?'],
+        'Questions in the present simple start with “Do”.', 'सवाल की शुरुआत “Do” से होती है: Do you speak English?'),
+    ],
+  },
+  {
+    number: 3,
+    title: 'Past & Places',
+    emoji: '🧭',
+    description: 'Past tense and the small words (in / on / at) that trip people up.',
+    questions: [
+      mcq('Yesterday, I ___ to the market.', ['go', 'goes', 'went', 'gone'], 2,
+        '“Yesterday” needs the past form. The past of go is went.', '“Yesterday” (बीता हुआ कल) के साथ past form आता है: go → went.'),
+      mcq('She was born ___ 2004.', ['on', 'at', 'in', 'by'], 2,
+        'Use “in” with years, months and seasons.', 'साल के साथ “in” आता है: in 2004. दिन के साथ “on”: on Monday.'),
+      mcq('Which sentence is correct?', ['I reached to home late.', 'I reached home late.', 'I reached at home late.', 'I reached in home late.'], 1,
+        '“Reach” is followed directly by the place, with no preposition.', '“reach” के बाद “to / at” नहीं लगता: I reached home, I reached the station.'),
+      mcq('Last night, I ___ my homework before dinner.', ['finish', 'finished', 'finishing', 'finishes'], 1,
+        '“Last night” needs the past form: finished.', '“Last night” के साथ past form: finished.'),
+      mcq('The meeting is ___ Monday.', ['in', 'at', 'on', 'by'], 2,
+        'Use “on” with days of the week.', 'दिन के साथ “on” आता है: on Monday.'),
+      tr('मैं कल दिल्ली गया था।', ['I went to Delhi yesterday.', 'Yesterday I went to Delhi.'],
+        '“गया था” is past tense: went.', '“गया था” → went (go का past form).'),
+      tr('उसने मुझे एक किताब दी।', ['She gave me a book.', 'He gave me a book.'],
+        '“उसने” can mean he or she, so both answers are accepted.', '“दी” → gave (give का past form). “उसने” में he या she दोनों चलेंगे।'),
+      tr('हम सोमवार को मिलेंगे।', ['We will meet on Monday.', 'We shall meet on Monday.', 'We are meeting on Monday.'],
+        'Use “on” with days and “will” for a future plan.', 'दिन के साथ “को” → on Monday. भविष्य के लिए will.'),
+    ],
+  },
+];

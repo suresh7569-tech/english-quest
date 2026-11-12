@@ -1,0 +1,17 @@
+export const SPEAKING_TOPICS = [
+  'Introduce yourself as if you are in a job interview.',
+  'Describe your best friend and why you like spending time together.',
+  'Talk about your favourite food and how it is made.',
+  'What did you do last weekend?',
+  'Describe your college and your daily routine.',
+  'Why is English important today?',
+  'Describe your hometown to someone who has never been there.',
+  'Talk about a movie you enjoyed and why.',
+  'What are your goals for the next five years?',
+  'Describe a festival you enjoy and how your family celebrates it.',
+  'How do you use your mobile phone in daily life?',
+  'Describe a place you would like to visit and why.',
+  'Tell us about a difficult situation and how you handled it.',
+  'Describe your favourite teacher.',
+  'Should students use AI tools for learning? Give your opinion.',
+];
